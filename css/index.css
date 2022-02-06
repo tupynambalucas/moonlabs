@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+}
+
+/* Fontes */
+
+.lores-bold{
+    font-family: lores-12,sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.lores-regular{
+    font-family: lores-12,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Swiper */
+.swiper-button-prev {
+    color: #0f0f0f !important;
+    outline: none;
+}
+
+.swiper-button-next {
+    color:#0f0f0f!important;
+    outline: none;
+}
+
+.swiper {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+  }
+
+  .swiper-slide {
+    font-size: 18px;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+
+.container{
+    position: absolute;
+    top: 30vh;
+    left: 60vw;
+    height: 30vh;
+    width: 30vw;
+}
+.container h1{
+    color: gold;
+}
+.container p{
+    color: goldenrod;
+    margin-top: 2vh;
+}
+.slide1{
+    background: red;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+}
+.slide2{
+    background: blue;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+}
+.slide3{
+    background: yellow;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    
+}
+
+/* HTML */
+
+body,html{
+    height: 100%;
+    width: 100%;
+}
+.header{
+    position: fixed;
+    height: 10vh;
+    width: 100vw;
+    background: #0f0f0f;
+    z-index: 1000;
+}
+.sec-1{
+    position: relative;
+    width: 100vw;
+    height: 80vh;
+    z-index: 50;
+}
+.conteudo h1{
+    position: absolute;
+    color: #7A488A;
+    left: 40vw;
+    top: 30vh;
+    font-size: 5vh;
+}
+.sec-2{
+    background: #0f0f0f;
+    height: 150vh;
+    width: 100vw;
+    -webkit-box-shadow: 0px -3px 28px -5px rgba(0,0,0,0.56); 
+    box-shadow: 0px -3px 28px -5px rgba(0,0,0,0.56);
+    color: white;
+    z-index: 2000;
+}
+.flex-box{
+    top: 40vh;
+    left: 10vw;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+}
+.servico{
+    position: relative;
+    height: 30vh;
+    width: 40vw;
+    background: white;
+    margin: 2vh;
+}
+.sec-3{
+    background: blue;
+    height: 100vh;
+    width: 100vw;
+}
+.rodape{
+    height: 20vh;
+    width: 100vw;
+    background: purple;
+}

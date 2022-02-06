@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoonLabs</title>
+    <link rel="stylesheet" href="./css/index.css">
+
+    <!-- Fontes -->
+    <link rel="stylesheet" href="https://use.typekit.net/vpu4ddu.css">
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <!-- Swiper -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <a href="">Contato</a>
+            <a href="">Quem Somos</a>
+            <a href="">Servicos</a>
+        </nav>
+    </div>
+    <section id="sec-1" class="sec-1">
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide slide1">
+                    <div class="container">
+                        <h1>Lorem</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque labore pariatur accusamus dignissimos, dolorem doloribus earum quo eveniet sunt corporis eligendi suscipit facere vitae, illum obcaecati iure quod quaerat?</p>
+                    </div>
+                </div>
+                <div class="swiper-slide slide2">
+                    <div class="container">
+                        <h1>Lorem</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos consectetur nisi quisquam odit veritatis velit a architecto dicta eius pariatur illo, nobis quidem cupiditate. Aperiam molestias delectus quod nobis saepe.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide slide3">
+                    <div class="container">
+                        <h1>Lorem</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos consectetur nisi quisquam odit veritatis velit a architecto dicta eius pariatur illo, nobis quidem cupiditate. Aperiam molestias delectus quod nobis saepe.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+      </div>
+    </section>
+    <section class="sec-2">
+        <div class="flex-box">
+            <div class="servico">
+                <h1></h1>
+                <p></p>
+            </div>
+            <div class="servico">
+                <h1></h1>
+                <p></p>
+            </div>
+            <div class="servico">
+                <h1></h1>
+                <p></p>
+            </div>
+            <div class="servico">
+                <h1></h1>
+                <p></p>
+            </div>
+            <div class="servico">
+                <h1></h1>
+                <p></p>
+            </div>
+        </div>
+    </section>
+    <section class="sec-3">
+
+    </section>
+    <footer class="rodape">
+        <h1>moonlabs</h1>
+        <p>48 98572-4235</p>
+        <p>moonlabs@gmail.com</p>
+    </footer>
+    <!-- Inicializa o Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+            },
+        });
+    </script> 
+    <!-- <script src="./lib/three.js"></script>
+    <script>
+        const div = document.getElementById('sec-1');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        div.appendChild( renderer.domElement );
+
+        const texture = new THREE.TextureLoader().load( './img/textura.jpg' );
+        const geometry = new THREE.SphereGeometry( );
+        const material = new THREE.MeshBasicMaterial( { map: texture } );
+        const lua = new THREE.Mesh( geometry, material );
+        scene.add( lua );
+
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame( animate );
+
+            lua.rotation.y += 0.01;
+
+            renderer.render( scene, camera );
+        };
+
+        animate();
+    </script> -->
+</body>
+</html>
