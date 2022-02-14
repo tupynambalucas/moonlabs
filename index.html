@@ -18,37 +18,13 @@
 <body>
     <div class="header">
         <nav>
-            <a href="">Contato</a>
-            <a href="">Quem Somos</a>
-            <a href="">Servicos</a>
+            <a href="./html/contato.html">Contato</a>
+            <a href="">Serviços</a>
+            <a href="">Sobre nós</a>
         </nav>
     </div>
     <section id="sec-1" class="sec-1">
-        <!-- Swiper -->
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide slide1">
-                    <div class="container">
-                        <h1>Lorem</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque labore pariatur accusamus dignissimos, dolorem doloribus earum quo eveniet sunt corporis eligendi suscipit facere vitae, illum obcaecati iure quod quaerat?</p>
-                    </div>
-                </div>
-                <div class="swiper-slide slide2">
-                    <div class="container">
-                        <h1>Lorem</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos consectetur nisi quisquam odit veritatis velit a architecto dicta eius pariatur illo, nobis quidem cupiditate. Aperiam molestias delectus quod nobis saepe.</p>
-                    </div>
-                </div>
-                <div class="swiper-slide slide3">
-                    <div class="container">
-                        <h1>Lorem</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos consectetur nisi quisquam odit veritatis velit a architecto dicta eius pariatur illo, nobis quidem cupiditate. Aperiam molestias delectus quod nobis saepe.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-      </div>
+        <div class="lua" id="lua"></div>
     </section>
     <section class="sec-2">
         <div class="flex-box">
@@ -75,7 +51,31 @@
         </div>
     </section>
     <section class="sec-3">
-
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide slide1">
+                    <div class="container">
+                        <h1>Lorem</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque labore pariatur accusamus dignissimos, dolorem doloribus earum quo eveniet sunt corporis eligendi suscipit facere vitae, illum obcaecati iure quod quaerat?</p>
+                    </div>
+                </div>
+                <div class="swiper-slide slide2">
+                    <div class="container">
+                        <h1>Lorem</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos consectetur nisi quisquam odit veritatis velit a architecto dicta eius pariatur illo, nobis quidem cupiditate. Aperiam molestias delectus quod nobis saepe.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide slide3">
+                    <div class="container">
+                        <h1>Lorem</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos consectetur nisi quisquam odit veritatis velit a architecto dicta eius pariatur illo, nobis quidem cupiditate. Aperiam molestias delectus quod nobis saepe.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+      </div>
     </section>
     <footer class="rodape">
         <h1>moonlabs</h1>
@@ -91,33 +91,83 @@
             },
         });
     </script> 
-    <!-- <script src="./lib/three.js"></script>
+    <script src="./lib/three.js"></script>
     <script>
-        const div = document.getElementById('sec-1');
+        const div = document.getElementById('lua');
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+        const camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 1000 );
+        const light = new THREE.AmbientLight( 0x404040, 3 );   
+        const light2 = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
 
+        const settings = {
+				metalness: 0.0,
+				roughness: 0.5,
+				aoMapIntensity: 2.0,
+				displacementScale: 10.0, // from original model
+				normalScale: 5.0
+			};
+        
+        // Setando o renderer e juntando ele a Div: lua
         const renderer = new THREE.WebGLRenderer({ alpha: true });
         renderer.setSize( window.innerWidth, window.innerHeight );
         div.appendChild( renderer.domElement );
 
-        const texture = new THREE.TextureLoader().load( './img/textura.jpg' );
-        const geometry = new THREE.SphereGeometry( );
-        const material = new THREE.MeshBasicMaterial( { map: texture } );
+        // Carregando Texturas
+        const textureLoader = new THREE.TextureLoader();
+        const colorMap = textureLoader.load('./three/textura/lua/teste.jpg') 
+        const normalMap = textureLoader.load( './three/textura/lua/lua_Normal.png' );
+        const aoMap = textureLoader.load( './three/textura/lua/lua_AO.png' );
+        const displacementMap = textureLoader.load( './three/textura/lua/lua_Displacement.png' );
+        
+        // Geometria e Material
+        const geometry = new THREE.SphereGeometry(3.5, 64, 64);
+        const material = new THREE.MeshStandardMaterial( {
+
+            map: colorMap,
+
+            color: 0x888888,
+            roughness: settings.roughness,
+            metalness: settings.metalness,
+
+            normalMap: normalMap,
+            normalScale: new THREE.Vector2( 3, - 1 ), // why does the normal map require negation in this case?
+
+            aoMap: aoMap,
+            aoMapIntensity: 0,
+
+            displacementMap: displacementMap,
+            displacementScale: settings.displacementScale,
+            displacementBias: - 0.428408, // from original model
+
+            side: THREE.DoubleSide
+
+        } );
+
+        // Fundindo geometria e materiam em uma Mesh
         const lua = new THREE.Mesh( geometry, material );
+
+        // Adicionando a mesh e luz na cena
         scene.add( lua );
+        scene.add( light );
+        scene.add( light2 );
 
-        camera.position.z = 5;
+        // Ajuste de posição da camera e da mesh
+        lua.position.x = 4.5;
+        lua.position.y = -1;
+        camera.position.z = 6;
+        camera.position.x = -1
+        
 
+        // Função que anima a mesh
         function animate() {
             requestAnimationFrame( animate );
 
-            lua.rotation.y += 0.01;
+            lua.rotation.y -= 0.003;
 
             renderer.render( scene, camera );
         };
 
         animate();
-    </script> -->
+    </script>
 </body>
 </html>

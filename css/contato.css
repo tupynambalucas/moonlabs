@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+}
+
+/* Fontes */
+
+.lores-bold{
+    font-family: lores-12,sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.lores-regular{
+    font-family: lores-12,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+html,body{
+    background: #0f0f0f;
+}
+.formulario{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+form input{
+    font-size: 2vh;
+    padding: 1vh;
+    margin: 2vh;
+}
+

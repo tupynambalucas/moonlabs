@@ -29,11 +29,11 @@
 .swiper {
     margin: 0;
     width: 100%;
-    height: 100vh;
+    height: 80vh;
     z-index: 2;
   }
 
-  .swiper-slide {
+.swiper-slide {
     font-size: 18px;
 
     /* Center slide text vertically */
@@ -41,7 +41,7 @@
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-  }
+}
 
 .container{
     position: absolute;
@@ -86,12 +86,26 @@ body,html{
     width: 100vw;
     background: #0f0f0f;
     z-index: 1000;
+    text-decoration: none;
+}
+.header nav{
+    position: absolute;
+    right: 10vw;
+    top: 5vh;
+}
+.header nav a{
+    color: white;
+    text-decoration: none;
+    margin: 1vw;
 }
 .sec-1{
     position: relative;
     width: 100vw;
-    height: 80vh;
+    height: 120vh;
     z-index: 50;
+    background-image: url(../img/espaco.jpg);
+    background-size: contain;
+    background-attachment: fixed;
 }
 .conteudo h1{
     position: absolute;
@@ -99,6 +113,15 @@ body,html{
     left: 40vw;
     top: 30vh;
     font-size: 5vh;
+}
+.lua{
+    position: absolute;
+    height: 120vh!important;
+    width: 100vw;
+    z-index: 2000;
+}
+.lua canvas{
+    height: 120vh!important;
 }
 .sec-2{
     background: #0f0f0f;
@@ -110,11 +133,12 @@ body,html{
     z-index: 2000;
 }
 .flex-box{
-    top: 40vh;
-    left: 10vw;
+    overflow: none;
+    top: 30vh;
+    left:7.5vw;
     position: relative;
     height: 100vh;
-    width: 100vw;
+    width: 90vw;
     z-index: 100;
     display: flex;
     flex-wrap: wrap;
