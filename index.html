@@ -14,6 +14,10 @@
     <!-- Swiper -->
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="./lib/aos.css">
+    <script src="./lib/aos.js"></script>
 </head>
 <body>
     <div class="header">
@@ -24,27 +28,28 @@
         </nav>
     </div>
     <section id="sec-1" class="sec-1">
+        <h1 class="criatividade">Criatividade fora <br> de órbita</h1>
         <div class="lua" id="lua"></div>
     </section>
     <section class="sec-2">
         <div class="flex-box">
-            <div class="servico">
+            <div class="servico" data-aos="fade-up">
                 <h1></h1>
                 <p></p>
             </div>
-            <div class="servico">
+            <div class="servico" data-aos="fade-up">
                 <h1></h1>
                 <p></p>
             </div>
-            <div class="servico">
+            <div class="servico" data-aos="fade-up">
                 <h1></h1>
                 <p></p>
             </div>
-            <div class="servico">
+            <div class="servico" data-aos="fade-up">
                 <h1></h1>
                 <p></p>
             </div>
-            <div class="servico">
+            <div class="servico" data-aos="fade-up">
                 <h1></h1>
                 <p></p>
             </div>
@@ -91,20 +96,24 @@
             },
         });
     </script> 
+    <!-- Inicializando AOS -->
+    <script>
+        AOS.init();
+    </script>
     <script src="./lib/three.js"></script>
     <script>
         const div = document.getElementById('lua');
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 1000 );
-        const light = new THREE.AmbientLight( 0x404040, 3 );   
+        const camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 1000 ); 
         const light2 = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
+        const light = new THREE.PointLight( 0xff0000, 1, 100 );
 
         const settings = {
 				metalness: 0.0,
 				roughness: 0.5,
 				aoMapIntensity: 2.0,
-				displacementScale: 10.0, // from original model
-				normalScale: 5.0
+				displacementScale: 0.3, // from original model
+				normalScale: 2.0
 			};
         
         // Setando o renderer e juntando ele a Div: lua
@@ -114,10 +123,10 @@
 
         // Carregando Texturas
         const textureLoader = new THREE.TextureLoader();
-        const colorMap = textureLoader.load('./three/textura/lua/teste.jpg') 
+        const colorMap = textureLoader.load('./three/textura/lua/moon-color-map.tiff') 
         const normalMap = textureLoader.load( './three/textura/lua/lua_Normal.png' );
         const aoMap = textureLoader.load( './three/textura/lua/lua_AO.png' );
-        const displacementMap = textureLoader.load( './three/textura/lua/lua_Displacement.png' );
+        const displacementMap = textureLoader.load( './three/textura/lua/displace.png' );
         
         // Geometria e Material
         const geometry = new THREE.SphereGeometry(3.5, 64, 64);
@@ -137,7 +146,7 @@
 
             displacementMap: displacementMap,
             displacementScale: settings.displacementScale,
-            displacementBias: - 0.428408, // from original model
+            displacementBias: - 1.0, // from original model
 
             side: THREE.DoubleSide
 
@@ -145,12 +154,14 @@
 
         // Fundindo geometria e materiam em uma Mesh
         const lua = new THREE.Mesh( geometry, material );
+        
 
         // Adicionando a mesh e luz na cena
         scene.add( lua );
         scene.add( light );
         scene.add( light2 );
 
+        light.position.set( 0, 0, 0 );
         // Ajuste de posição da camera e da mesh
         lua.position.x = 4.5;
         lua.position.y = -1;

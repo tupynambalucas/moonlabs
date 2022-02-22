@@ -27,6 +27,7 @@
 }
 
 .swiper {
+    display: none;
     margin: 0;
     width: 100%;
     height: 80vh;
@@ -77,8 +78,8 @@
 /* HTML */
 
 body,html{
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
 }
 .header{
     position: fixed;
@@ -103,16 +104,15 @@ body,html{
     width: 100vw;
     height: 120vh;
     z-index: 50;
-    background-image: url(../img/espaco.jpg);
-    background-size: contain;
-    background-attachment: fixed;
+    background: #0f0f0f;
 }
-.conteudo h1{
+.criatividade{
+    text-align: left;
     position: absolute;
     color: #7A488A;
-    left: 40vw;
-    top: 30vh;
-    font-size: 5vh;
+    left: 20vw;
+    top: 40vh;
+    font-size: 10vh;
 }
 .lua{
     position: absolute;
@@ -122,10 +122,11 @@ body,html{
 }
 .lua canvas{
     height: 120vh!important;
+    width: 100vw!important;
 }
 .sec-2{
     background: #0f0f0f;
-    height: 150vh;
+    height: 170vh;
     width: 100vw;
     -webkit-box-shadow: 0px -3px 28px -5px rgba(0,0,0,0.56); 
     box-shadow: 0px -3px 28px -5px rgba(0,0,0,0.56);
@@ -135,7 +136,7 @@ body,html{
 .flex-box{
     overflow: none;
     top: 30vh;
-    left:7.5vw;
+    left:12vw;
     position: relative;
     height: 100vh;
     width: 90vw;
@@ -145,10 +146,10 @@ body,html{
 }
 .servico{
     position: relative;
-    height: 30vh;
-    width: 40vw;
+    height: 50vh;
+    width: 20vw;
     background: white;
-    margin: 2vh;
+    margin: 6vh;
 }
 .sec-3{
     background: blue;
