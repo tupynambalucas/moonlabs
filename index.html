@@ -28,30 +28,31 @@
         </nav>
     </div>
     <section id="sec-1" class="sec-1">
-        <h1 class="criatividade">Criatividade fora <br> de órbita</h1>
+        <h1 class="criatividade">Criatividade <br> fora de órbita</h1>
         <div class="lua" id="lua"></div>
     </section>
     <section class="sec-2">
         <div class="flex-box">
             <div class="servico" data-aos="fade-up">
-                <h1></h1>
-                <p></p>
+                <div class="servico-conteudo">
+                    <h1>Site</h1>
+                    <p>Criamos experiências únicas no sistema solar para atender seuus usuários</p>
+                </div>
+                <button>Saiba Mais</button>
             </div>
             <div class="servico" data-aos="fade-up">
-                <h1></h1>
-                <p></p>
+                <div class="servico-conteudo">
+                    <h1>Consultoria</h1>
+                    <p>Conte com a nossa expertise para impulsionar sua empresa na velocidade da luz</p>
+                </div>
+                <button>Saiba Mais</button>
             </div>
             <div class="servico" data-aos="fade-up">
-                <h1></h1>
-                <p></p>
-            </div>
-            <div class="servico" data-aos="fade-up">
-                <h1></h1>
-                <p></p>
-            </div>
-            <div class="servico" data-aos="fade-up">
-                <h1></h1>
-                <p></p>
+                <div class="servico-conteudo">
+                    <h1>E-Commerce</h1>
+                    <p>Lance seu comércio na web e escalone seu negócio para o infinito e além</p>
+                </div>
+                <button>Saiba Mais</button>
             </div>
         </div>
     </section>
@@ -61,20 +62,20 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide slide1">
                     <div class="container">
-                        <h1>Lorem</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque labore pariatur accusamus dignissimos, dolorem doloribus earum quo eveniet sunt corporis eligendi suscipit facere vitae, illum obcaecati iure quod quaerat?</p>
+                        <h1>Brasil é o quinto país que mais investe tempo em games</h1>
+                        <p>- Comscore</p>
                     </div>
                 </div>
                 <div class="swiper-slide slide2">
                     <div class="container">
-                        <h1>Lorem</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos consectetur nisi quisquam odit veritatis velit a architecto dicta eius pariatur illo, nobis quidem cupiditate. Aperiam molestias delectus quod nobis saepe.</p>
+                        <h1>Brasil é top 10 no ranking de países que mais jogam jogos eletrônicos</h1>
+                        <p>- Consultoria Newzoo</p>
                     </div>
                 </div>
                 <div class="swiper-slide slide3">
                     <div class="container">
-                        <h1>Lorem</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos consectetur nisi quisquam odit veritatis velit a architecto dicta eius pariatur illo, nobis quidem cupiditate. Aperiam molestias delectus quod nobis saepe.</p>
+                        <h1>Brasil já ultrapassa marca de 150 milhões de usuários na internet</h1>
+                        <p>- Comitê gestor da internet do Brasil</p>
                     </div>
                 </div>
             </div>
@@ -107,6 +108,7 @@
         const camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 1000 ); 
         const light2 = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
         const light = new THREE.PointLight( 0xff0000, 1, 100 );
+        
 
         const settings = {
 				metalness: 0.0,
@@ -119,7 +121,7 @@
         // Setando o renderer e juntando ele a Div: lua
         const renderer = new THREE.WebGLRenderer({ alpha: true });
         renderer.setSize( window.innerWidth, window.innerHeight );
-        div.appendChild( renderer.domElement );
+
 
         // Carregando Texturas
         const textureLoader = new THREE.TextureLoader();
@@ -168,6 +170,7 @@
         camera.position.z = 6;
         camera.position.x = -1
         
+        div.appendChild( renderer.domElement );
 
         // Função que anima a mesh
         function animate() {
